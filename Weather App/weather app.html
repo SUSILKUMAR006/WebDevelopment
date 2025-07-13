@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" href="images/clear.png">
+    <title>Weather App</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+        body {
+            display: flex;
+            background-color: #f8f2f2;
+        }
+
+        .side_bar {
+            height: 100vh;
+            width: 160px;
+            background-color: #00bfff;
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 50px;
+            z-index: 3;
+
+        }
+
+        .side_bar .content {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            padding-top: 60px;
+            justify-content: center;
+        }
+
+        .side_bar .content a {
+            color: white;
+            font-size: 18px;
+            text-decoration: none;
+            margin: 5px 10px;
+            animation-name: slide-in-left;
+            animation-duration: 1s;
+            transition: linear .2s;
+
+        }
+
+        .side_bar .content a:hover {
+            padding-left: 7px;
+
+        }
+
+        .side_bar .content a i {
+            font-size: 20px;
+        }
+
+        .side_bar .content image {
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .log {
+            position: absolute;
+            bottom: 10px;
+        }
+
+        .header {
+            width: 88%;
+            height: 75px;
+            background-color: white;
+            border-bottom: 2px solid rgb(0, 0, 0);
+            display: flex;
+            justify-content: space-between;
+            z-index: 1;
+        }
+
+        .header .search,
+        .user {
+            width: 50%;
+        }
+
+        .header .search {
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            animation-duration: .7s;
+            animation-name: slide-in-blurred-left;
+        }
+
+        .header .search input {
+            width: 200px;
+            height: 40px;
+            margin-left: 50px;
+            outline: none;
+            border-radius: 8px 0px 0px 8px;
+            border: 2px solid #00bfff;
+            background-color: rgb(240, 240, 240);
+            padding: 0 25px;
+            border-right: none;
+        }
+
+        .header .search input:hover {
+            cursor: pointer;
+        }
+
+        .header .search button {
+            height: 43px;
+            width: 40px;
+            font-size: 23px;
+            border: 2px solid #00bfff;
+            border-radius: 0px 8px 8px 0px;
+            border-left: none;
+            cursor: pointer;
+            padding-top: 3px;
+        }
+
+        span {
+            color: #00bfff;
+
+        }
+
+        .header .user {
+            display: flex;
+            justify-content: right;
+            gap: 10px;
+            align-items: center;
+            padding: 0px 20px;
+        }
+
+        .header .user button {
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            font-size: 25px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+        }
+
+        .header .user img {
+            width: 35px;
+            height: 35px;
+            object-fit: cover;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .main {
+            position: absolute;
+            width: 85%;
+            height: 90vh;
+            top: 65px;
+            left: 230px;
+            display: flex;
+            gap: 90px;
+        }
+
+        .main .text {
+            margin-left: 60px;
+            margin-top: 30px;
+            animation-name: tracking-in-expand-fwd;
+            animation-duration: 1s;
+        }
+
+        .main .text p {
+            font-size: 16px;
+            color: brown;
+            font-weight: 400;
+        }
+
+        .main .text h3 {
+            font-size: 22px;
+        }
+
+        .main .wether_card {
+            width: 350px;
+            height: 500px;
+            background-color: transparent;
+            z-index: 2;
+            box-shadow: 18px 12px 43px 1px rgba(59, 57, 59, 0.86);
+            margin-top: 20px;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            animation-name: scale-up-center;
+            animation-duration: 1s;
+            transition: linear .2s;
+            cursor: pointer;
+        }
+
+        .main .wether_card:hover {
+            margin-top: -5px;
+            transition: linear .2s;
+        }
+
+        .weather_report {
+            text-align: center;
+        }
+
+        .weather_report h1 {
+            font-size: 50px;
+            z-index: 2;
+        }
+
+        .weather_report .city {
+            font-size: 30px;
+            z-index: 10;
+            margin-bottom: 50px;
+        }
+
+        #main_img {
+            height: 200px;
+            width: 200px;
+            object-fit: cover;
+        }
+
+        .others h2 {
+            padding-top: 50px;
+            padding-bottom: 40px;
+        }
+
+        .all {
+            display: flex;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .others .today_high {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            box-shadow: 18px 12px 43px 1px rgba(59, 57, 59, 0.86);
+            animation-name: bounce-in-top;
+            animation-duration: 1s;
+            transition: linear .1s;
+        }
+
+
+        .others .today_high img {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            padding-top: 10px;
+        }
+
+        #smile {
+            width: 120px;
+            height: 120px;
+        }
+
+        .title {
+            animation-name: tracking-in-expand-fwd;
+            animation-duration: 1s;
+        }
+
+        .part1,
+        .part2,
+        .part3,
+        .part4,
+        .part5,
+        .part6 {
+            width: 200px;
+            height: 200px;
+            cursor: pointer;
+            transition: linear .2s;
+
+        }
+
+        .part1:hover,
+        .part2:hover,
+        .part3:hover,
+        .part4:hover,
+        .part5:hover,
+        .part6:hover {
+            margin-top: -30px;
+            transition: linear .2s;
+        }
+
+        @-webkit-keyframes scale-up-center {
+            0% {
+                -webkit-transform: scale(0.5);
+                transform: scale(0.5);
+            }
+
+            100% {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+            }
+        }
+
+        @keyframes scale-up-center {
+            0% {
+                -webkit-transform: scale(0.5);
+                transform: scale(0.5);
+            }
+
+            100% {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+            }
+        }
+
+        @-webkit-keyframes slide-in-left {
+            0% {
+                -webkit-transform: translateX(-1000px);
+                transform: translateX(-1000px);
+                opacity: 0;
+            }
+
+            100% {
+                -webkit-transform: translateX(0);
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slide-in-left {
+            0% {
+                -webkit-transform: translateX(-1000px);
+                transform: translateX(-1000px);
+                opacity: 0;
+            }
+
+            100% {
+                -webkit-transform: translateX(0);
+                transform: translateX(0);
+                opacity: 1;
+            }
+
+        }
+
+        @-webkit-keyframes bounce-in-top {
+            0% {
+                -webkit-transform: translateY(-500px);
+                transform: translateY(-500px);
+                -webkit-animation-timing-function: ease-in;
+                animation-timing-function: ease-in;
+                opacity: 0;
+            }
+
+            38% {
+                -webkit-transform: translateY(0);
+                transform: translateY(0);
+                -webkit-animation-timing-function: ease-out;
+                animation-timing-function: ease-out;
+                opacity: 1;
+            }
+
+            55% {
+                -webkit-transform: translateY(-65px);
+                transform: translateY(-65px);
+                -webkit-animation-timing-function: ease-in;
+                animation-timing-function: ease-in;
+            }
+
+            72% {
+                -webkit-transform: translateY(0);
+                transform: translateY(0);
+                -webkit-animation-timing-function: ease-out;
+                animation-timing-function: ease-out;
+            }
+
+            81% {
+                -webkit-transform: translateY(-28px);
+                transform: translateY(-28px);
+                -webkit-animation-timing-function: ease-in;
+                animation-timing-function: ease-in;
+            }
+
+            90% {
+                -webkit-transform: translateY(0);
+                transform: translateY(0);
+                -webkit-animation-timing-function: ease-out;
+                animation-timing-function: ease-out;
+            }
+
+            95% {
+                -webkit-transform: translateY(-8px);
+                transform: translateY(-8px);
+                -webkit-animation-timing-function: ease-in;
+                animation-timing-function: ease-in;
+            }
+
+            100% {
+                -webkit-transform: translateY(0);
+                transform: translateY(0);
+                -webkit-animation-timing-function: ease-out;
+                animation-timing-function: ease-out;
+            }
+        }
+
+        @keyframes bounce-in-top {
+            0% {
+                -webkit-transform: translateY(-500px);
+                transform: translateY(-500px);
+                -webkit-animation-timing-function: ease-in;
+                animation-timing-function: ease-in;
+                opacity: 0;
+            }
+
+            38% {
+                -webkit-transform: translateY(0);
+                transform: translateY(0);
+                -webkit-animation-timing-function: ease-out;
+                animation-timing-function: ease-out;
+                opacity: 1;
+            }
+
+            55% {
+                -webkit-transform: translateY(-65px);
+                transform: translateY(-65px);
+                -webkit-animation-timing-function: ease-in;
+                animation-timing-function: ease-in;
+            }
+
+            72% {
+                -webkit-transform: translateY(0);
+                transform: translateY(0);
+                -webkit-animation-timing-function: ease-out;
+                animation-timing-function: ease-out;
+            }
+
+            81% {
+                -webkit-transform: translateY(-28px);
+                transform: translateY(-28px);
+                -webkit-animation-timing-function: ease-in;
+                animation-timing-function: ease-in;
+            }
+
+            90% {
+                -webkit-transform: translateY(0);
+                transform: translateY(0);
+                -webkit-animation-timing-function: ease-out;
+                animation-timing-function: ease-out;
+            }
+
+            95% {
+                -webkit-transform: translateY(-8px);
+                transform: translateY(-8px);
+                -webkit-animation-timing-function: ease-in;
+                animation-timing-function: ease-in;
+            }
+
+            100% {
+                -webkit-transform: translateY(0);
+                transform: translateY(0);
+                -webkit-animation-timing-function: ease-out;
+                animation-timing-function: ease-out;
+            }
+        }
+
+
+        @-webkit-keyframes slide-in-blurred-left {
+            0% {
+                -webkit-transform: translateX(-1000px) scaleX(2.5) scaleY(0.2);
+                transform: translateX(-1000px) scaleX(2.5) scaleY(0.2);
+                -webkit-transform-origin: 100% 50%;
+                transform-origin: 100% 50%;
+                -webkit-filter: blur(40px);
+                filter: blur(40px);
+                opacity: 0;
+            }
+
+            100% {
+                -webkit-transform: translateX(0) scaleY(1) scaleX(1);
+                transform: translateX(0) scaleY(1) scaleX(1);
+                -webkit-transform-origin: 50% 50%;
+                transform-origin: 50% 50%;
+                -webkit-filter: blur(0);
+                filter: blur(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slide-in-blurred-left {
+            0% {
+                -webkit-transform: translateX(-1000px) scaleX(2.5) scaleY(0.2);
+                transform: translateX(-1000px) scaleX(2.5) scaleY(0.2);
+                -webkit-transform-origin: 100% 50%;
+                transform-origin: 100% 50%;
+                -webkit-filter: blur(40px);
+                filter: blur(40px);
+                opacity: 0;
+            }
+
+            100% {
+                -webkit-transform: translateX(0) scaleY(1) scaleX(1);
+                transform: translateX(0) scaleY(1) scaleX(1);
+                -webkit-transform-origin: 50% 50%;
+                transform-origin: 50% 50%;
+                -webkit-filter: blur(0);
+                filter: blur(0);
+                opacity: 1;
+            }
+        }
+
+        @-webkit-keyframes tracking-in-expand-fwd {
+            0% {
+                letter-spacing: -0.5em;
+                -webkit-transform: translateZ(-700px);
+                transform: translateZ(-700px);
+                opacity: 0;
+            }
+
+            40% {
+                opacity: 0.6;
+            }
+
+            100% {
+                -webkit-transform: translateZ(0);
+                transform: translateZ(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes tracking-in-expand-fwd {
+            0% {
+                letter-spacing: -0.5em;
+                -webkit-transform: translateZ(-700px);
+                transform: translateZ(-700px);
+                opacity: 0;
+            }
+
+            40% {
+                opacity: 0.6;
+            }
+
+            100% {
+                -webkit-transform: translateZ(0);
+                transform: translateZ(0);
+                opacity: 1;
+            }
+        }
+
+
+
+        @-webkit-keyframes slide-top {
+            0% {
+                -webkit-transform: translateY(0);
+                transform: translateY(0);
+            }
+
+            100% {
+                -webkit-transform: translateY(-100px);
+                transform: translateY(-100px);
+            }
+        }
+
+        @keyframes slide-top {
+            0% {
+                -webkit-transform: translateY(0);
+                transform: translateY(0);
+            }
+
+            100% {
+                -webkit-transform: translateY(-100px);
+                transform: translateY(-100px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="side_bar">
+
+        <div class="content">
+            <a href="#"> <i class='bx bxs-home'> </i> HOME</a>
+            <a href="#"> <i class='bx bxs-location-plus'> </i> LOCATION</a>
+            <a href="#"> <i class='bx bxs-pie-chart-alt-2'> </i> ANALYTICS</a>
+            <a href="#"> <i class='bx bx-calendar'> </i> CALENDER</a>
+            <a href="#"> <i class='bx bxs-cog'> </i> SETTING</a>
+        </div>
+        <div class="log">
+            <img src="images-removebg-preview.png" alt="">
+        </div>
+    </div>
+
+    <div class="header">
+        <div class="search">
+            <input type="text" id="city_input" placeholder="Search here...">
+            <button id="fetch-btn"><i class='bx bx-search'></i></button>
+        </div>
+        <div class="user">
+            <button><i class='bx bx-bell'></i></button>
+            <button><i class='bx bx-user'></i></button>
+            <img src="https://www.wallsnapy.com/img_gallery/recent-thalapathy-vijay-hd-images-wallpaper-2607478.jpg"
+                alt="">
+        </div>
+    </div>
+    <div class="main">
+
+        <div class="text">
+            <p>Current Date and Time</p>
+            <h3 class="current">Monday, 07:43 PM</h3>
+            <div class="wether_card">
+                <div class="img">
+
+                </div>
+                <div class="weather_report">
+                    <img id="main_img" src="images/mist.png" alt="">
+                    <h1 class="temp">22°c</h1>
+                    <h2 class="city">New Yark</h2>
+                </div>
+            </div>
+
+        </div>
+        <div class="others">
+            <h2 class="title"> <span>Today </span> Highlights</h2>
+            <div class="all">
+                <div class="today_high part2">
+                    <h3>Humidity</h3>
+                    <img src="humidity.png"
+                        alt="">
+                    <p class="Humidity">98%</p>
+                </div>
+                <div class="today_high part1">
+                    <h3>Wind Speed</h3>
+                    <img src="wind speed.png" alt="">
+                    <p class="Wind_Speed">90%</p>
+                </div>
+                <div class="today_high part3">
+                    <h3>Clouds</h3>
+                    <img src="cloud.png" alt="">
+                    <p class="Clouds">56%</p>
+                </div>
+                <div class="today_high part4">
+                    <h3>Visibility</h3>
+                    <img src="image.png" alt="">
+                    <p class="visibility">90%</p>
+                </div>
+                <div class="today_high part5">
+                    <h3>Pressure</h3>
+                    <img src="press.png" alt="">
+                    <p class="Pressure">45.3%</p>
+                </div>
+                <div class="today_high part6">
+                    <img id="smile" src="images/smile.png" alt="">
+                    <p>Have a nice Day...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let today = new Date();
+        let month = today.getMonth() + 1;
+        let day;
+        const timezone = "Asia/Kolkata"; // Timezone for India
+        const date = new Date();
+
+        // Get hours and minutes in the 'Asia/Kolkata' timezone
+        const formatter = new Intl.DateTimeFormat('en-IN', {
+            timeZone: timezone,
+            hour: 'numeric',
+            minute: 'numeric',
+            hour12: true
+        });
+
+        const parts = formatter.formatToParts(date);
+        let hours, minutes, period;
+
+        parts.forEach(part => {
+            if (part.type === 'hour') hours = part.value;
+            if (part.type === 'minute') minutes = part.value;
+            if (part.type === 'dayPeriod') period = part.value;
+        });
+        switch (today.getDay()) {
+            case 0:
+                day = "Sunday";
+                break;
+
+            case 1:
+                day = "Monday";
+                break;
+
+            case 2:
+                day = "Tuesday";
+                break;
+
+            case 3:
+                day = "Wednesday";
+                break;
+
+            case 4:
+                day = "Thursday";
+                break;
+
+            case 5:
+                day = "Friday";
+                break;
+
+            case 6:
+                day = " Saturday";
+                break;
+        }
+        let mins = addZero(today.getMinutes());
+        day = addZero(day);
+        hours = addZero(hours);
+        mins = addZero(mins);
+        let current = `${day},${hours}:${mins} ${period}`;
+        function addZero(num) {
+            if (num < 10) {
+                return (`0${num}`);
+            }
+            else {
+                return (num);
+            }
+        }
+        document.querySelector(".current").innerHTML = current;
+
+        const apikey = "f06138900a759506bd2efc45d4f768c1";
+        const apiUrl = "https://api.openweathermap.org/data/2.5/weather?&units=metric&q=";
+        const searchBox = document.querySelector(".search input");
+        const searchButton = document.querySelector(".search button"); // Corrected from 'botton' to 'button'
+        const weatherIcon = document.querySelector("#main_img");
+        async function checkWeather(city) {
+            try {
+                const response = await fetch(apiUrl + city + `&appid=${apikey}`);
+                if (!response.ok) throw new Error("City not found");
+
+                const data = await response.json();
+                console.log(data);
+
+                document.querySelector(".city").innerHTML = data.name;
+                document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°c";
+                document.querySelector(".Humidity").innerHTML = data.main.humidity + '%';
+                document.querySelector(".Wind_Speed").innerHTML = data.wind.speed + ' km/h';
+                document.querySelector(".Clouds").innerHTML = data.clouds.all + '%';
+                document.querySelector(".Pressure").innerHTML = data.main.pressure + " Pa";
+                document.querySelector(".visibility").innerHTML = Math.round(data.visibility / 3280.8) + " km";
+
+                if (data.weather[0].main == "Clouds") {
+                    if ((period == "pm") && (hours >= 6) && hours != 12) {
+                        weatherIcon.src = "images/clouds moon.png";
+                    }
+                    else {
+                        weatherIcon.src = "images/clouds.png";
+                    }
+
+                } else if (data.weather[0].main == "Clear") {
+
+
+                    if ((period == "pm") && (hours >= 6) && hours != 12) {
+                        weatherIcon.src = "images/clear moon.png";
+                    }
+                    else {
+                        weatherIcon.src = "images/clear.png";
+                    }
+                } else if (data.weather[0].main == "Rain") {
+                    if ((period == "pm") && (hours >= 6) && hours != 12) {
+                        weatherIcon.src = "images/rain moon.png";
+                    }
+                    else {
+                        weatherIcon.src = "images/rain.png";
+                    }
+                } else if (data.weather[0].main == "Drizzle") {
+                    if ((period == "pm") && (hours >= 6) && hours != 12) {
+                        weatherIcon.src = "images/drizzle moon.png";
+                    }
+                    else {
+                        weatherIcon.src = "images/drizzle.png";
+                    }
+                }
+            } catch (error) {
+                alert(error.message); // Display error if city is not found
+            }
+        }
+
+        searchButton.addEventListener("click", () => {
+            checkWeather(searchBox.value);
+        });
+    </script>
+</body>
+
+</html>
