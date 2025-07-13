@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+
+</head>
+
+<body>
+    <section>
+        <div class="flex">
+            <div class="w-2/12 flex items-center ">
+                <div class="w-full text-right ml-3">
+                    <button onclick="prev()" class="p-3 rounded-full shadow-lg border border-gray-100"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                            class="w-6 h-6">
+                            <path fill-rule="evenodd"
+                                d="M11.03 3.97a.75.75 0 0 1 0 1.06l-6.22 6.22H21a.75.75 0 0 1 0 1.5H4.81l6.22 6.22a.75.75 0 1 1-1.06 1.06l-7.5-7.5a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 0 1 1.06 0Z"
+                                clip-rule="evenodd" />
+                        </svg></button>
+                </div>
+            </div>
+            <div id="sliderContainer" class="w-10/12 overflow-hidden">
+                <ul id="slider" class="flex w-full transition-margin duration-700">
+                    <li class=" p-2">
+                        <div class="border rounded-lg p-5">
+                        <img class="h-50 w-full object-cover rounded-md" src="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" alt="">
+                    </div>
+                    </li>
+                    <li class=" p-5">
+                        <div class="border rounded-lg p-5">
+                        <img class="h-50 w-full object-cover rounded-md" src="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" alt="">
+                    </div>
+                    </li>
+                    <li class=" p-5">
+                        <div class="border rounded-lg p-5">
+                        <img class="h-50 w-full object-cover rounded-md" src="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" alt="">
+                    </div>
+                    </li>
+                    <li class=" p-5">
+                        <div class="border rounded-lg p-5">
+                        <img class="h-50 w-full object-cover rounded-md" src="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" alt="">
+                    </div>
+                    </li>
+                    <li class=" p-5">
+                        <div class="border rounded-lg p-5">
+                        <img class="h-50 w-full object-cover rounded-md" src="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" alt="">
+                    </div>
+                    </li>
+                    <li class=" p-5">
+                        <div class="border rounded-lg p-5">
+                        <img class="h-50 w-full object-cover rounded-md" src="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" alt="">
+                    </div>
+                    </li>
+                    <li class=" p-5">
+                        <div class="border rounded-lg p-5">
+                        <img class="h-50 w-full object-cover rounded-md" src="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" alt="">
+                    </div>
+                    </li>
+                    <li class=" p-5">
+                        <div class="border rounded-lg p-5">
+                        <img class="h-50 w-full object-cover rounded-md" src="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" alt="">
+                    </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="w-2/12 flex items-center">
+                <div class="w-full mr-3">
+                    <button onclick="next()" class="p-3 rounded-full shadow-lg border border-gray-100"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                            class="w-6 h-6">
+                            <path fill-rule="evenodd"
+                                d="M12.97 3.97a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 1 1-1.06-1.06l6.22-6.22H3a.75.75 0 0 1 0-1.5h16.19l-6.22-6.22a.75.75 0 0 1 0-1.06Z"
+                                clip-rule="evenodd" />
+                        </svg></button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="mul.js"></script>
+</body>
+
+</html>

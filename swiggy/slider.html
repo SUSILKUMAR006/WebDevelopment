@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+    <style>
+        .hight{
+        height:50vh;
+    }
+    </style>
+</head>
+<body>
+    <section>
+        <div class="relative">
+            
+                <ul id="slider">
+                    <li class="hight relative"> 
+                    <img src="/source/product.png" class="h-full  object-cover" alt="">
+                    <div class="absolute top-0 left-0 h-full w-full flex">
+                        <h2 class="text-4xl font-bold text-white my-auto w-full text-center px-10">Some Big Heading</h2>
+                    </div>
+                    </li>
+                    <li class="hight relative hidden"> 
+                        <img src="/source/team2.jpg" class="h-full  object-cover" alt="">
+                        <div class="absolute top-0 left-0 h-full w-full flex">
+                            <h2 class="text-4xl font-bold text-white my-auto w-full text-center px-10">Some Big Heading</h2>
+                        </div>
+                        </li>
+
+                        <li class="hight relative hidden"> 
+                            <img src="/source/product.png" class="h-full  object-cover" alt="">
+                            <div class="absolute top-0 left-0 h-full w-full flex">
+                                <h2 class="text-4xl font-bold text-white my-auto w-full text-center px-10">Some Big Heading</h2>
+                            </div>
+                            </li>
+                </ul>
+    
+            <div class="absolute px-5 flex h-full w-full top-0 left-0 ">
+                <div class="my-auto w-full flex justify-between">
+                    <button onclick="prev()" class="bg-white p-3 rounded-full bg-opacity-80 shadow-lg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                    <path fill-rule="evenodd" d="M11.03 3.97a.75.75 0 0 1 0 1.06l-6.22 6.22H21a.75.75 0 0 1 0 1.5H4.81l6.22 6.22a.75.75 0 1 1-1.06 1.06l-7.5-7.5a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 0 1 1.06 0Z" clip-rule="evenodd" />
+                  </svg>
+                  </button>
+                <button onclick="next()" class="bg-white p-3 rounded-full bg-opacity-80 shadow-lg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                    <path fill-rule="evenodd" d="M12.97 3.97a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 1 1-1.06-1.06l6.22-6.22H3a.75.75 0 0 1 0-1.5h16.19l-6.22-6.22a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                  </svg>
+                  </button></div>
+            </div>
+        </div>
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>
