@@ -1,0 +1,442 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "user": {
+        "id": 101,
+        "username": "john_doe",
+        "profile_pic": "DB/user 1.png"
+      },
+      "image": "DB/user 1 post.png",
+      "caption": "Beautiful sunset 👆 #Nature",
+      "likes": 120,
+      "comments": [
+        {
+          "user": "alice_wonder",
+          "comment": "Wow! Amazing shot!"
+        },
+        {
+          "user": "mark_92",
+          "comment": "Where is this place?"
+        }
+      ],
+      "timestamp": "2025-02-11T14:30:00Z"
+    },
+    {
+      "id": "2",
+      "user": {
+        "id": 102,
+        "username": "emma_smith",
+        "profile_pic": "DB/user 2.png"
+      },
+      "image": "DB/user 2 post.avif",
+      "caption": "City vibes 🌆 #NightLife",
+      "likes": 95,
+      "comments": [
+        {
+          "user": "john_doe",
+          "comment": "This looks stunning!"
+        }
+      ],
+      "timestamp": "2025-02-12T18:45:00Z"
+    },
+    {
+      "id": "3",
+      "user": {
+        "id": 103,
+        "username": "sam_traveler",
+        "profile_pic": "DB/user 3.avif"
+      },
+      "image": "DB/user 3 post.avif ",
+      "caption": "Lost in the mountains 🏔️",
+      "likes": 210,
+      "comments": [
+        {
+          "user": "emma_smith",
+          "comment": "Breathtaking view!"
+        }
+      ],
+      "timestamp": "2025-02-13T10:00:00Z"
+    },
+    {
+      "id": "4",
+      "user": {
+        "id": 104,
+        "username": "lucy_fitness",
+        "profile_pic": "DB/user 4.jpeg"
+      },
+      "image": "DB/user 4 post.jpg",
+      "caption": "Morning workout 💪 #Fitness",
+      "likes": 175,
+      "comments": [
+        {
+          "user": "mark_92",
+          "comment": "Great motivation!"
+        }
+      ],
+      "timestamp": "2025-02-14T06:30:00Z"
+    },
+    {
+      "id": "5",
+      "user": {
+        "id": 105,
+        "username": "mike_foodie",
+        "profile_pic": "DB/user 5.jpeg"
+      },
+      "image": "DB/user 5 post.jpeg",
+      "caption": "Homemade pasta 🍝 #Foodie",
+      "likes": 250,
+      "comments": [
+        {
+          "user": "lucy_fitness",
+          "comment": "Looks delicious!"
+        }
+      ],
+      "timestamp": "2025-02-15T13:20:00Z"
+    },
+    {
+      "id": "6",
+      "user": {
+        "id": 106,
+        "username": "travel_guru",
+        "profile_pic": "DB/user 7.jpg"
+      },
+      "image": "DB/user 6 post.jpg",
+      "caption": "Tropical paradise 🏝️ #BeachVibes",
+      "likes": 320,
+      "comments": [
+        {
+          "user": "john_doe",
+          "comment": "Wish I was there!"
+        }
+      ],
+      "timestamp": "2025-02-16T17:45:00Z"
+    },
+    {
+      "id": "7",
+      "user": {
+        "id": 107,
+        "username": "sara_artist",
+        "profile_pic": "DB/user 8.jpg"
+      },
+      "image": "DB/user 7 post.jpg",
+      "caption": "New painting 🎨 #Art",
+      "likes": 130,
+      "comments": [
+        {
+          "user": "emma_smith",
+          "comment": "So creative!"
+        }
+      ],
+      "timestamp": "2025-02-17T15:10:00Z"
+    },
+    {
+      "id": "8",
+      "user": {
+        "id": 108,
+        "username": "peter_biker",
+        "profile_pic": "DB/user 9.jpg"
+      },
+      "image": "DB/user 8 post.jpg",
+      "caption": "Ride to the hills 🏍️ #Adventure",
+      "likes": 180,
+      "comments": [
+        {
+          "user": "sam_traveler",
+          "comment": "Epic ride!"
+        }
+      ],
+      "timestamp": "2025-02-18T08:00:00Z"
+    },
+    {
+      "id": "9",
+      "user": {
+        "id": 109,
+        "username": "lisa_fashion",
+        "profile_pic": "DB/user 10.jpeg"
+      },
+      "image": "DB/user 9 post.webp",
+      "caption": "Style of the day 👗 #Fashion",
+      "likes": 290,
+      "comments": [
+        {
+          "user": "mike_foodie",
+          "comment": "Chic and stylish!"
+        }
+      ],
+      "timestamp": "2025-02-19T11:30:00Z"
+    },
+    {
+      "id": "10",
+      "user": {
+        "id": 110,
+        "username": "nathan_coder",
+        "profile_pic": "DB/user 6.png"
+      },
+      "image": "DB/user 10 post.jpeg",
+      "caption": "Debugging mode ON 🖥️ #CodingLife",
+      "likes": 140,
+      "comments": [
+        {
+          "user": "lisa_fashion",
+          "comment": "Haha, relatable!"
+        }
+      ],
+      "timestamp": "2025-02-20T21:00:00Z"
+    }
+  ],
+  "Profile": {
+    "id": 1,
+    "username": "LEO 😈",
+    "profile_pic": "DB/user 8.jpg"
+  },
+  "Suggestions": [
+    {
+      "id": "1",
+      "user": {
+        "id": 101,
+        "username": "john_doe",
+        "profile_pic": "DB/user 1.png"
+      },
+      "image": "DB/user 1 post.png",
+      "caption": "Beautiful sunset 👆 #Nature",
+      "likes": 120,
+      "comments": [
+        {
+          "user": "alice_wonder",
+          "comment": "Wow! Amazing shot!"
+        },
+        {
+          "user": "mark_92",
+          "comment": "Where is this place?"
+        }
+      ],
+      "timestamp": "2025-02-11T14:30:00Z"
+    },
+    {
+      "id": "2",
+      "user": {
+        "id": 102,
+        "username": "emma_smith",
+        "profile_pic": "DB/user 2.png"
+      },
+      "image": "DB/user 2 post.avif",
+      "caption": "City vibes 🌆 #NightLife",
+      "likes": 95,
+      "comments": [
+        {
+          "user": "john_doe",
+          "comment": "This looks stunning!"
+        }
+      ],
+      "timestamp": "2025-02-12T18:45:00Z"
+    },
+    {
+      "id": "3",
+      "user": {
+        "id": 103,
+        "username": "sam_traveler",
+        "profile_pic": "DB/user 3.avif"
+      },
+      "image": "DB/user 3 post.avif ",
+      "caption": "Lost in the mountains 🏔️",
+      "likes": 210,
+      "comments": [
+        {
+          "user": "emma_smith",
+          "comment": "Breathtaking view!"
+        }
+      ],
+      "timestamp": "2025-02-13T10:00:00Z"
+    },
+    {
+      "id": "4",
+      "user": {
+        "id": 104,
+        "username": "lucy_fitness",
+        "profile_pic": "DB/user 4.jpeg"
+      },
+      "image": "DB/user 4 post.jpg",
+      "caption": "Morning workout 💪 #Fitness",
+      "likes": 175,
+      "comments": [
+        {
+          "user": "mark_92",
+          "comment": "Great motivation!"
+        }
+      ],
+      "timestamp": "2025-02-14T06:30:00Z"
+    },
+    {
+      "id": "5",
+      "user": {
+        "id": 105,
+        "username": "mike_foodie",
+        "profile_pic": "DB/user 5.jpeg"
+      },
+      "image": "DB/user 5 post.jpeg",
+      "caption": "Homemade pasta 🍝 #Foodie",
+      "likes": 250,
+      "comments": [
+        {
+          "user": "lucy_fitness",
+          "comment": "Looks delicious!"
+        }
+      ],
+      "timestamp": "2025-02-15T13:20:00Z"
+    },
+    {
+      "id": "6",
+      "user": {
+        "id": 106,
+        "username": "travel_guru",
+        "profile_pic": "DB/user 7.jpg"
+      },
+      "image": "DB/user 6 post.jpg",
+      "caption": "Tropical paradise 🏝️ #BeachVibes",
+      "likes": 320,
+      "comments": [
+        {
+          "user": "john_doe",
+          "comment": "Wish I was there!"
+        }
+      ],
+      "timestamp": "2025-02-16T17:45:00Z"
+    }
+  ],
+  "Stories": [
+    {
+      "id": "1",
+      "user": {
+        "id": 101,
+        "username": "john_doe",
+        "profile_pic": "DB/user 1.png"
+      },
+      "image": "https://plus.unsplash.com/premium_photo-1664474619075-644dd191935f?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aW1hZ2V8ZW58MHx8MHx8fDA%3D",
+      "caption": "Beautiful sunset 👆 #Nature",
+      "likes": 120,
+      "comments": [
+        {
+          "user": "alice_wonder",
+          "comment": "Wow! Amazing shot!"
+        },
+        {
+          "user": "mark_92",
+          "comment": "Where is this place?"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "user": {
+        "id": 102,
+        "username": "emma_smith",
+        "profile_pic": "DB/user 2.png"
+      },
+      "image": "https://i.pinimg.com/736x/3f/96/2a/3f962ab40c0793ed9b984edece519cd4.jpg",
+      "caption": "City vibes 🌆 #NightLife",
+      "likes": 95,
+      "comments": [
+        {
+          "user": "john_doe",
+          "comment": "This looks stunning!"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "user": {
+        "id": 103,
+        "username": "sam_traveler",
+        "profile_pic": "DB/user 3.avif"
+      },
+      "image": "https://w0.peakpx.com/wallpaper/35/177/HD-wallpaper-vijay-thalapathy-master-thalapathy-vijay-thumbnail.jpg",
+      "caption": "Lost in the mountains 🏔️",
+      "likes": 210,
+      "comments": [
+        {
+          "user": "emma_smith",
+          "comment": "Breathtaking view!"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "user": {
+        "id": 104,
+        "username": "lucy_fitness",
+        "profile_pic": "DB/user 4.jpeg"
+      },
+      "image": "https://w0.peakpx.com/wallpaper/256/920/HD-wallpaper-master-thalapathy-thalapathy-vijay-vijay-vijay-thalapathy-thumbnail.jpg",
+      "caption": "Morning workout 💪 #Fitness",
+      "likes": 175,
+      "comments": [
+        {
+          "user": "mark_92",
+          "comment": "Great motivation!"
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "user": {
+        "id": 105,
+        "username": "mike_foodie",
+        "profile_pic": "DB/user 5.jpeg"
+      },
+      "image": "https://e0.pxfuel.com/wallpapers/319/950/desktop-wallpaper-master-vijay-vijay-thalapathy.jpg",
+      "caption": "Homemade pasta 🍝 #Foodie",
+      "likes": 250,
+      "comments": [
+        {
+          "user": "lucy_fitness",
+          "comment": "Looks delicious!"
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "user": {
+        "id": 106,
+        "username": "travel_guru",
+        "profile_pic": "DB/user 7.jpg"
+      },
+      "image": "https://i.pinimg.com/736x/93/b1/f2/93b1f2836f92e6395694ed7b46c943e4.jpg",
+      "caption": "Tropical paradise 🏝️ #BeachVibes",
+      "likes": 320,
+      "comments": [
+        {
+          "user": "john_doe",
+          "comment": "Wish I was there!"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "user": {
+        "id": 102,
+        "username": "emma_smith",
+        "profile_pic": "DB/user 2.png"
+      },
+      "image": "https://i.pinimg.com/736x/3f/96/2a/3f962ab40c0793ed9b984edece519cd4.jpg",
+      "caption": "City vibes 🌆 #NightLife",
+      "likes": 95,
+      "comments": [
+        {
+          "user": "john_doe",
+          "comment": "This looks stunning!"
+        }
+      ]
+    }
+  ],
+  "followers": [
+    {
+      "id": "1",
+      "username": "john_doe"
+    },
+    {
+      "id": "3",
+      "username": "sam_traveler"
+    }
+  ]
+}
